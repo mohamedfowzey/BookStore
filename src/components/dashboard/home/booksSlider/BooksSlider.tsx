@@ -79,6 +79,7 @@ export default function BooksSlider() {
                     <SwiperSlide><Skeleton variant="rectangular" width={210} height={400} /> </SwiperSlide>
                     <SwiperSlide><Skeleton variant="rectangular" width={210} height={400} /> </SwiperSlide>
                     <SwiperSlide><Skeleton variant="rectangular" width={210} height={400} /> </SwiperSlide>
+                    <SwiperSlide><Skeleton variant="rectangular" width={210} height={400} /> </SwiperSlide>
                     </>
                 )
                   :
