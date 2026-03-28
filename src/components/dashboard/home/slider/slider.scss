@@ -1,0 +1,64 @@
+
+
+.swiper.hero-slider {
+  width: 100%;
+  height: fit-content;
+  ;
+}
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  // background-image: linear-gradient(to right, #ffe9e8,#f8fffe);
+
+  /* Center slide text vertically */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  
+}
+
+.swiper.hero-slider .swiper-slide {
+  @extend.swiper-slide;
+  background-image: linear-gradient(to right, #ffe9e8,#f8fffe);
+
+  
+}
+.swiper.categories-slider .swiper-slide{
+  @extend .swiper-slide
+}
+
+ .swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit:fill;
+}
+ .myswiper-pagination{
+  width: fit-content !important;
+  position: absolute !important;
+  
+}
+.swiper.hero-slider .swiper-pagination{
+  @extend.myswiper-pagination;
+  left: 60px !important;
+  bottom: 30px !important;
+}
+.swiper.books-slider .swiper-pagination{
+  @extend.myswiper-pagination;
+  bottom: 0;
+  width: 100% !important;
+  text-align: center !important;
+
+}
+.swiper.categories-slider .swiper-pagination{
+  display: none;
+}
+.swiper-pagination-bullet{
+  margin: 0 6px !important;
+}
+.swiper-pagination-bullet-active{
+  background-color: #ef6b4a !important;
+  outline: #ef6b4a;
+}
