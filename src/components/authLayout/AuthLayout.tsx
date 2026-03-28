@@ -1,7 +1,6 @@
 import { Box, CssBaseline, Grid } from '@mui/material'
 import heroImg from '../../assets/hero-img.jpg'
 import logo from '../../assets/Logo (Stroke).png'
-import React from 'react'
 import { Navigate, Outlet } from 'react-router-dom'
 
 export default function AuthLayout() {
