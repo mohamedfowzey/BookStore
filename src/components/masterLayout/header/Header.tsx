@@ -95,7 +95,7 @@ const Header = () => {
             {navLinks.map((item) => (
               <Link
                 key={item}
-                href="#"
+                
                 underline="none"
                 sx={{
                   display: { sm: "none ", md: "block" },

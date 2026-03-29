@@ -11,8 +11,16 @@ interface ChangePassData{
     password_new:string
 }
 export default function ChangePassword() {
+  console.log('change-password');
+  const [showOldPassword, setShowOldPassword] = useState(false);
+  const handleClickShowOldPassword = () => setShowOldPassword((show) => !show);
+    const [showNewPassword, setShowNewPassword] = useState(false);
+  const handleClickShowNewPassword = () => setShowNewPassword((show) => !show);
+  
     const {register,handleSubmit,formState:{errors}} = useForm<ChangePassData>();
-     const [loading,setLoading] = useState(false)
+     const [loading,setLoading] = useState(false);
+       const navigete = useNavigate();
+
   const onsubmit =async (data:ChangePassData)=>{
     setLoading(true)
     console.log(data);
@@ -31,11 +39,7 @@ export default function ChangePassword() {
     
   }
     
-  const navigete = useNavigate();
-    const [showOldPassword, setShowOldPassword] = useState(false);
-  const handleClickShowOldPassword = () => setShowOldPassword((show) => !show);
-    const [showNewPassword, setShowNewPassword] = useState(false);
-  const handleClickShowNewPassword = () => setShowNewPassword((show) => !show);
+    
   return (
 <Box component='form' onSubmit={handleSubmit(onsubmit)}>
     <FormControl  error={!!errors.password} fullWidth sx={{mt:3 }} variant="outlined">

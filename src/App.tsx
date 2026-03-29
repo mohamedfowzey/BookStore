@@ -21,7 +21,7 @@ const routes = createBrowserRouter([
       {path:'register',element:<Register/>},
       {path:'forget-password',element:<ForgetPassword/>},
       {path:'reset-password',element:<ResetPassword/>},
-      {path:'change-password',element:<Protect><ChangePassword/></Protect>}
+      {path:'change-password',element:<ChangePassword/>}
 
 
     ]
