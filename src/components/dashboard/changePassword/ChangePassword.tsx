@@ -30,7 +30,7 @@ export default function ChangePassword() {
     navigete('/dashboard')
     }
     catch(e){
-        console.log(e);
+        alert(e.message);
         
         setLoading(false)
     }
