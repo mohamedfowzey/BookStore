@@ -1,16 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-interface CartItem {
-    bookId: string;
+
+
+export interface CartState {
     quantity: number;
 }
 
-export interface CartState {
-    items: CartItem[];
-}
-
 const initialState: CartState = {
-  items: [],
+  quantity: 0,
 }
 
 export const cartSlice = createSlice({
@@ -22,12 +19,12 @@ export const cartSlice = createSlice({
       // doesn't actually mutate the state because it uses the Immer library,
       // which detects changes to a "draft state" and produces a brand new
       // immutable state based off those changes
-      state.items.push({ bookId: "default-book-id", quantity: 1 });
+      state.quantity += 1;
     },
     decrement: (state) => {
-      if (state.items.length > 0) {
-        state.items.pop();
-      }
+      if (state.quantity > 0) {
+        state.quantity -= 1;
+      } 
     },
     
   },
