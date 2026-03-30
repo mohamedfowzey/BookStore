@@ -16,7 +16,6 @@ export default function ChangePassword() {
   const handleClickShowOldPassword = () => setShowOldPassword((show) => !show);
     const [showNewPassword, setShowNewPassword] = useState(false);
   const handleClickShowNewPassword = () => setShowNewPassword((show) => !show);
-  
     const {register,handleSubmit,formState:{errors}} = useForm<ChangePassData>();
      const [loading,setLoading] = useState(false);
        const navigete = useNavigate();

@@ -9,6 +9,7 @@ import ForgetPassword from "./components/authLayout/forgetPassword/ForgetPasswor
 import ResetPassword from "./components/authLayout/ResetPassword/ResetPassword"
 import Home from "./components/dashboard/home/Home"
 import ChangePassword from "./components/dashboard/changePassword/ChangePassword"
+import Cart from "./components/dashboard/Cart.tsx/Cart"
 
 
 function App() {
@@ -31,6 +32,7 @@ const routes = createBrowserRouter([
     children:[
       {index:true,element:<Home/>},
       {path:'home',element:<Home/>},
+      {path:'cart',element:<Cart/>}
     ]
 
   }

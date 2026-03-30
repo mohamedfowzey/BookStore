@@ -36,10 +36,9 @@ export default function FeaturedBooksSlider() {
   return (
     <Swiper
     style={{backgroundColor:BG_COLORS.SecondaryLight}}
+   
       className='featured-slider'
       slidesPerView={1}
-      onSlideChange={() => console.log('slide change')}
-      onSwiper={(swiper) => console.log(swiper)}
       navigation={{nextEl:'.hero-slider-next',prevEl:'.hero-slider-prev'}}
         pagination={{clickable:true}}
         keyboard={true}
@@ -69,18 +68,18 @@ export default function FeaturedBooksSlider() {
      }}} /> 
      {loading? 
           (<>
-            <SwiperSlide><Skeleton variant="rectangular" width={400} height={400} sx={{m:'auto'}}/> </SwiperSlide>
+            <SwiperSlide><Skeleton variant="rectangular"  sx={{m:'auto',width:'100%'}}/> </SwiperSlide>
             </>
         )
           :
      allBooks?.map((book:Book)=>
       <SwiperSlide>
-        <Grid container sx={{height:'100%',py:6,px:8,pl:20}} alignItems={'center'}>
-            <Grid  alignSelf={'stretch'} size={{sm:12,md:6}}>
-            <Box sx={{}}><img src={book.image.startsWith('http')?book.image:fallbackImage} style={{height:'500px',width:'300px',objectFit:'fill',margin:'auto'}}/></Box>
+        <Grid container sx={{height:'100%',py:6,pl:{lg:20,md:8,xs:2},pr:0}} alignItems={'center'} justifyContent={'center'}>
+            <Grid  alignSelf={'stretch'} size={{sm:12,md:6}} sx={{width:{md:'fit-content',xs:'100%'}}}>
+            <Box sx={{}}><img src={book.image.startsWith('http')?book.image:fallbackImage} style={{height:'500px',width:'300px',maxWidth:'100%',objectFit:'fill',margin:'auto'}}/></Box>
           </Grid>
           <Grid size={{sm:12,md:6}}>
-            <Box sx={{px:8,textAlign:'start'}}>
+            <Box sx={{px:8,textAlign:'start','& *':{width:'fit-content'},mx:'auto',width:'fit-content'}}>
               <Typography variant='h4' sx={{mb:4}} color={TEXT_COLORS.Primary}>Featured Book</Typography>
               <Typography variant='body1' sx={{mb:2,position:'relative',pt:0.25,':before':{
                 content:'""',

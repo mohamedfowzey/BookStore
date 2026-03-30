@@ -23,14 +23,14 @@ import {
 } from "@mui/icons-material";
 import { BG_COLORS, TEXT_COLORS } from "../../../Constants/COLORS";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import type { RootState } from "../../../Redux/store";
 
 const Header = () => {
+  const cartQuantity = useSelector((state:RootState) => state.cart.quantity); // Replace with actual cart quantity from state or props
   const navLinks = [
     "HOME",
-    "ABOUT US",
     "BOOKS",
-    "NEW RELEASE",
-    "CONTACT US",
     "BLOG",
   ];
   const navigate = useNavigate();
@@ -98,12 +98,14 @@ const Header = () => {
                 
                 underline="none"
                 sx={{
-                  display: { sm: "none ", md: "block" },
+                  display: { xs: "none ", md: "block" },
                   fontSize: "0.85rem",
                   fontWeight: "bold",
                   color: item === "HOME" ? "#ff5722" : "#333", // Highlight Home in orange
-                  "&:hover": { color: "#ff5722" },
+                  "&:hover": { color: "#ff5722", cursor: "pointer" },
+
                 }}
+                {...((item === "HOME" && { onClick: () => navigate("/dashboard") }))}
               >
                 {item}
               </Link>
@@ -128,8 +130,8 @@ const Header = () => {
               sx={{ height: 20, my: "auto", mx: 0.5 }}
             />
             <Tooltip title="cart">
-              <Badge badgeContent={0} color="error">
-                <IconButton size="small">
+              <Badge badgeContent={cartQuantity} color="error">
+                <IconButton size="small" onClick={()=>navigate('cart')}>
                   <LocalMallOutlined />
                 </IconButton>
               </Badge>

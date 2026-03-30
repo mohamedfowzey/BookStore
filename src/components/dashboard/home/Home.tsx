@@ -110,7 +110,20 @@ export default function Home() {
         <Swiper
           className="categories-slider"
           spaceBetween={20}
-          slidesPerView={3}
+          slidesPerView={1}
+            breakpoints={{
+                  1000:{
+                    slidesPerView:4
+                  },
+                    700:{
+                    slidesPerView:3
+                  },
+                    300:{
+                    slidesPerView:2
+                  }
+          
+          
+                }}
           navigation={{
             nextEl: ".category-slider-next",
             prevEl: ".category-slider-prev",

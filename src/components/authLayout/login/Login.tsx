@@ -3,7 +3,7 @@ import React, { useContext, useState } from 'react'
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import { BG_COLORS, TEXT_COLORS } from '../../../Constants/COLORS';
-import {  useNavigate } from 'react-router-dom';
+import {  Navigate, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import { LOGIN } from '../../../Constants/END_POINTS';
@@ -13,6 +13,7 @@ interface LoginData{
   password:string
 }
 export default function Login() {
+  
     const context = useContext(ApiContext)
   const [loading,setLoading] = useState(false)
   const {register,handleSubmit,formState:{errors}} = useForm<LoginData>()
@@ -34,6 +35,9 @@ export default function Login() {
   }
   
   const handleClickShowPassword = () => setShowPassword((show) => !show);
+   if(localStorage.getItem('userToken')){
+    return <Navigate to = '/dashboard'/>
+  }
   return (
     <>
       <Box sx={{mb:5}}> 

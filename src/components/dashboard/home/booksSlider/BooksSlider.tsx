@@ -59,9 +59,22 @@ export default function BooksSlider() {
       </Typography>
       <Box sx={{pb:0}}>
       <Swiper
+      breakpoints={{
+        800:{
+          slidesPerView:4
+        },
+          600:{
+          slidesPerView:3
+        },
+          400:{
+          slidesPerView:2
+        }
+
+
+      }}
       style={{paddingBottom:'56px'}}
       className="books-slider"
-        slidesPerView={4}
+        slidesPerView={1}
         spaceBetween={12}
         pagination={{
             clickable:true,
