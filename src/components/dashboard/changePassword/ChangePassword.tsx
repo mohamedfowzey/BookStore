@@ -10,6 +10,13 @@ interface ChangePassData{
     password:string,
     password_new:string
 }
+interface error{
+    response:{
+        data:{
+            message:string
+        }
+    }
+}
 export default function ChangePassword() {
   console.log('change-password');
   const [showOldPassword, setShowOldPassword] = useState(false);
@@ -24,13 +31,13 @@ export default function ChangePassword() {
     setLoading(true)
     console.log(data);
     try{
-    const response = await axios.post(CHANGE_PASSWORD,data,{headers:{Authorization:`bearer ${localStorage.getItem('userToken')}`}});
-    console.log(response);
+    await axios.post(CHANGE_PASSWORD,data,{headers:{Authorization:`bearer ${localStorage.getItem('userToken')}`}});
     setLoading(false);
     navigete('/dashboard')
     }
     catch(e){
-        alert(e.message);
+      const error = e as error;
+        alert(error?.response.data.message || 'something went wrong !!');
         
         setLoading(false)
     }

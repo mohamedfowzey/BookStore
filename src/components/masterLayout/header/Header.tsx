@@ -18,13 +18,13 @@ import {
   LinkedIn,
   Twitter,
   LocalMallOutlined,
-  FavoriteBorderOutlined,
   LockOpenOutlined,
 } from "@mui/icons-material";
 import { BG_COLORS, TEXT_COLORS } from "../../../Constants/COLORS";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import type { RootState } from "../../../Redux/store";
+import LogoutIcon from '@mui/icons-material/Logout';
 
 const Header = () => {
   const cartQuantity = useSelector((state:RootState) => state.cart.quantity); // Replace with actual cart quantity from state or props
@@ -142,8 +142,8 @@ const Header = () => {
               sx={{ height: 20, my: "auto", mx: 0.5 }}
             />
             <Tooltip title="favorites">
-              <IconButton size="small">
-                <FavoriteBorderOutlined />
+              <IconButton size="small" onClick={()=>{localStorage.removeItem("userToken");navigate('/')}}>
+                <LogoutIcon />
               </IconButton>
             </Tooltip>
           </Stack>
