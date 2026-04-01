@@ -68,7 +68,7 @@ export default function FeaturedBooksSlider() {
      }}} /> 
      {loading? 
           (<>
-            <SwiperSlide><Skeleton variant="rectangular"  sx={{m:'auto',width:'100%'}}/> </SwiperSlide>
+            <SwiperSlide><Skeleton variant="rectangular"  sx={{m:'auto',width:'100%',height:'500px'}}/> </SwiperSlide>
             </>
         )
           :

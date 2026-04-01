@@ -12,6 +12,7 @@ export default function BooksSlider() {
   const loading = allBooks == undefined;
   useEffect(() => {
     const getAllBooks = async () => {
+      
       const response = await axios.get(ALL_BOOKS, {
         headers: {
           Authorization: "bearer " + localStorage.getItem("userToken"),
